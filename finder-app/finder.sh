@@ -24,7 +24,7 @@ fi
 NUMFILES=$(find $FILESDIR -type f | wc -l)
 
 # Count the number of matching lines across all files
-NUMMATCH=$(grep $SEARCHSTR $(find $FILESDIR -type f) | wc -l)
+NUMMATCH=$(grep -r $SEARCHSTR $FILESDIR 2>/dev/null | wc -l)
 
 # Output the results
 echo "The number of files are $NUMFILES and the number of matching lines are $NUMMATCH"
