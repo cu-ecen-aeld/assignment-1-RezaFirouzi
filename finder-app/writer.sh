@@ -12,6 +12,10 @@ fi
 WRITEFILE=$1
 WRITESTR=$2
 
+FILEPATH=$(dirname $WRITEFILE)
+
+mkdir -p $FILEPATH
+
 if ! $(echo $WRITESTR > $WRITEFILE); then
   echo "Failed to create the file"
   exit 1
