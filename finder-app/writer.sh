@@ -12,13 +12,16 @@ fi
 WRITEFILE=$1
 WRITESTR=$2
 
-FILEPATH=$(dirname $WRITEFILE)
+DIRPATH=$(dirname $WRITEFILE)
 
-mkdir -p $FILEPATH
+if [ ! -d $DIRPATH ]; then
+  mkdir -p $DIRPATH
+fi
 
 if ! $(echo $WRITESTR > $WRITEFILE); then
   echo "Failed to create the file"
   exit 1
 fi
 
+echo "The script has successfully written $WRITESTR to $WRITEFILE file."
 exit 0
