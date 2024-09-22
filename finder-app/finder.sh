@@ -16,9 +16,9 @@ FILESDIR=$1
 SEARCHSTR=$2
 
 #FILESLIST=$(find $FILESDIR -type f)
-
 #NUMMATCH=$(grep $SEARCHSTR $FILESLIST) | wc -l
 #NUMFILES=$(wc -l $FILESLIST)
+
 NUMFILES=$(find $FILESDIR -type f | wc -l)
 NUMMATCH=$(grep $SEARCHSTR $(find $FILESDIR -type f) | wc -l)
 
