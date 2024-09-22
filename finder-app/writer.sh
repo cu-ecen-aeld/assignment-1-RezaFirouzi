@@ -1,27 +1,32 @@
 #!/bin/bash
 
-#Author : Reza Firouzi
+# Author: Reza Firouzi
 
 set -e
 
+# Check if at least two arguments are provided
 if [ $# -lt 2 ]; then
-  echo "The two required arguments has not been passed to the script!"
+  echo "Error: Two required arguments must be passed to the script!"
+  echo "Usage: $0 <file_path> <string_to_write>"
   exit 1
 fi
 
-WRITEFILE=$1
-WRITESTR=$2
+WRITEFILE="$1"
+WRITESTR="$2"
 
-DIRPATH=$(dirname $WRITEFILE)
+# Extract directory path from the provided file path
+DIRPATH=$(dirname "$WRITEFILE")
 
-if [ ! -d $DIRPATH ]; then
-  mkdir -p $DIRPATH
+# Check if the directory exist, if not, create it
+if [ ! -d "$DIRPATH" ]; then
+  mkdir -p "$DIRPATH"
 fi
 
-if ! $(echo $WRITESTR > $WRITEFILE); then
-  echo "Failed to create the file"
+# Write the string to the file and check if successful
+if ! echo "$WRITESTR" > "$WRITEFILE"; then
+  echo "Error: Failed to write to the file '$WRITEFILE'."
   exit 1
 fi
 
-echo "The script has successfully written $WRITESTR to $WRITEFILE file."
+echo "Successfully written '$WRITESTR' to the file '$WRITEFILE'."
 exit 0

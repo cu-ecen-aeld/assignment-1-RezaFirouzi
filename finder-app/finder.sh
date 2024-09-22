@@ -30,4 +30,3 @@ NUMMATCH=$(grep -r $SEARCHSTR $FILESDIR 2>/dev/null | wc -l)
 echo "The number of files are $NUMFILES and the number of matching lines are $NUMMATCH"
 
 exit 0
-
