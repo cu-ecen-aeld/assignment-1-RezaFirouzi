@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Author: Reza Firouzi
+# Author : Reza Firouzi
 
 set -e
 
